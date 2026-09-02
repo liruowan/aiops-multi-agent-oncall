@@ -1,0 +1,26 @@
+[
+  {"id":"Q001","query":"order-service HighMemoryUsage ap-guangzhou memory","expectedFactIds":["F001","F002"],"relevantFactIds":["F001","F002","F003","F004","F005","F006","F007","F008","F009","F010","F011","F012"]},
+  {"id":"Q002","query":"order-service OOM-RISK heap full GC memory","expectedFactIds":["F004","F006","F010","F011"],"relevantFactIds":["F001","F002","F003","F004","F005","F006","F007","F008","F009","F010","F011","F012"]},
+  {"id":"Q003","query":"order-service order-worker-1 pod memory restart","expectedFactIds":["F005","F011"],"relevantFactIds":["F001","F002","F003","F004","F005","F006","F007","F008","F009","F010","F011","F012"]},
+  {"id":"Q004","query":"order-service cache behavior memory leak ap-guangzhou","expectedFactIds":["F007","F008","F009","F010","F012"],"relevantFactIds":["F001","F002","F003","F004","F005","F006","F007","F008","F009","F010","F011","F012"]},
+
+  {"id":"Q005","query":"payment-service SlowResponse cn-hangzhou latency","expectedFactIds":["F013","F014","F015"],"relevantFactIds":["F013","F014","F015","F016","F017","F018","F019","F020","F021","F022","F023","F024"]},
+  {"id":"Q006","query":"payment-service PAY-TIMEOUT database slow query latency","expectedFactIds":["F017","F018","F020","F023","F024"],"relevantFactIds":["F013","F014","F015","F016","F017","F018","F019","F020","F021","F022","F023","F024"]},
+  {"id":"Q007","query":"payment-service bank-api timeout p99 latency","expectedFactIds":["F016","F021"],"relevantFactIds":["F013","F014","F015","F016","F017","F018","F019","F020","F021","F022","F023","F024"]},
+  {"id":"Q008","query":"payment-service retry policy database contention","expectedFactIds":["F018","F019","F020","F023","F024","F017"],"relevantFactIds":["F013","F014","F015","F016","F017","F018","F019","F020","F021","F022","F023","F024"]},
+
+  {"id":"Q009","query":"user-service ServiceUnavailable ap-shanghai availability","expectedFactIds":["F025"],"relevantFactIds":["F025","F026","F027","F028","F029","F030","F031","F032","F033","F034","F035","F036"]},
+  {"id":"Q010","query":"user-service HTTP 503 readiness probe CrashLoopBackOff","expectedFactIds":["F028","F029","F030","F032"],"relevantFactIds":["F025","F026","F027","F028","F029","F030","F031","F032","F033","F034","F035","F036"]},
+  {"id":"Q011","query":"user-service redis endpoint bad config release","expectedFactIds":["F031","F034","F035","F036"],"relevantFactIds":["F025","F026","F027","F028","F029","F030","F031","F032","F033","F034","F035","F036"]},
+  {"id":"Q012","query":"user-service endpoint empty rollback traffic availability","expectedFactIds":["F032","F033","F034","F035","F036"],"relevantFactIds":["F025","F026","F027","F028","F029","F030","F031","F032","F033","F034","F035","F036"]},
+
+  {"id":"Q013","query":"inventory-service HighDiskUsage ap-beijing disk","expectedFactIds":["F037","F038","F039"],"relevantFactIds":["F037","F038","F039","F040","F041","F042","F043","F044","F045","F046","F047","F048"]},
+  {"id":"Q014","query":"inventory-service debug logs disk /var/log/app","expectedFactIds":["F040","F041","F043","F044","F047"],"relevantFactIds":["F037","F038","F039","F040","F041","F042","F043","F044","F045","F046","F047","F048"]},
+  {"id":"Q015","query":"inventory-service PVC kubelet eviction disk low","expectedFactIds":["F042","F045","F046","F048"],"relevantFactIds":["F037","F038","F039","F040","F041","F042","F043","F044","F045","F046","F047","F048"]},
+  {"id":"Q016","query":"inventory-service rotate logs cleanup job disk","expectedFactIds":["F044","F047"],"relevantFactIds":["F037","F038","F039","F040","F041","F042","F043","F044","F045","F046","F047","F048"]},
+
+  {"id":"Q017","query":"search-service HighCPUUsage us-east-1 cpu","expectedFactIds":["F049"],"relevantFactIds":["F049","F050","F051","F052","F053","F054","F055","F056","F057","F058","F059","F060"]},
+  {"id":"Q018","query":"search-service query fanout traffic CPU hot pod","expectedFactIds":["F052","F053","F054","F058"],"relevantFactIds":["F049","F050","F051","F052","F053","F054","F055","F056","F057","F058","F059","F060"]},
+  {"id":"Q019","query":"search-service query cache disabled high CPU","expectedFactIds":["F055","F056","F059"],"relevantFactIds":["F049","F050","F051","F052","F053","F054","F055","F056","F057","F058","F059","F060"]},
+  {"id":"Q020","query":"search-service HPA pprof tokenizer rollback CPU","expectedFactIds":["F052","F057","F058","F059","F060","F054"],"relevantFactIds":["F049","F050","F051","F052","F053","F054","F055","F056","F057","F058","F059","F060"]}
+]

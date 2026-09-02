@@ -1,0 +1,47 @@
+[
+  {
+    "id": "time_route",
+    "name": "DateTime tool route",
+    "question": "What time is it now? You must use the current time tool and answer with the current date and time.",
+    "expectedTool": "getCurrentDateTime",
+    "expectedResultContains": [],
+    "expectedAnswerContains": ["2026"],
+    "forbiddenAnswerContains": ["I cannot access", "I do not have access"]
+  },
+  {
+    "id": "prometheus_alert_route",
+    "name": "Prometheus alert route and result",
+    "question": "Query current Prometheus active alerts and summarize alert names, services, and states.",
+    "expectedTool": "queryPrometheusAlerts",
+    "expectedResultContains": ["HighCPUUsage", "HighMemoryUsage", "SlowResponse", "payment-service", "order-service", "firing"],
+    "expectedAnswerContains": ["HighCPUUsage", "HighMemoryUsage", "SlowResponse"],
+    "forbiddenAnswerContains": ["DiskFull", "database corrupted", "network partition"]
+  },
+  {
+    "id": "log_memory_route",
+    "name": "CLS log route and result",
+    "question": "Query recent memory-related logs for order-service. Use log topic system-metrics and region ap-guangzhou. Summarize exact evidence.",
+    "expectedTool": "queryLogs",
+    "expectedResultContains": ["order-service", "Full GC", "memory usage high", "3.8GB"],
+    "expectedAnswerContains": ["order-service", "Full GC"],
+    "forbiddenAnswerContains": ["payment-service disk", "No logs available"]
+  },
+  {
+    "id": "log_topic_route",
+    "name": "CLS log topic discovery",
+    "question": "List the available log topics before querying logs. Only summarize the topic names.",
+    "expectedTool": "getAvailableLogTopics",
+    "expectedResultContains": ["system-metrics", "application-logs", "database-slow-query", "system-events"],
+    "expectedAnswerContains": ["system-metrics", "application-logs"],
+    "forbiddenAnswerContains": ["unknown-topic"]
+  },
+  {
+    "id": "aiops_skill_route",
+    "name": "AIOps skill route and result",
+    "question": "Show me the AIOps skill definition for HighCPUUsage and summarize the investigation steps.",
+    "expectedTool": "getAIOpsSkillDefinition",
+    "expectedResultContains": ["HighCPUUsage"],
+    "expectedAnswerContains": ["HighCPUUsage"],
+    "forbiddenAnswerContains": ["No matching skill found"]
+  }
+]
